@@ -9,7 +9,7 @@
 from math import sqrt
 
 """
-    Ввод размеров сторон треугольника. 
+    Ввод числа. 
 """
 def input_number(message: str):
     while True:
@@ -41,10 +41,12 @@ def input_number(message: str):
             проверяем сразу же.
 """
 def is_prime(number):
-    if number < 2 or (number % 2) == 0:
+    if number < 2:
         return False
     if number == 2 or number == 3:
         return True
+    if number % 2 == 0:
+        return False
 
     n = sqrt(number)
     for divider in range(3, int(n), 2):
@@ -53,3 +55,16 @@ def is_prime(number):
     return True
 
 
+"""
+    Основной код
+"""
+num_of = input_number("Введите количество чисел")
+count = 0
+
+while num_of > 0:
+    num = input_number("Введите число")
+    if is_prime(num):
+        count += 1
+    num_of -= 1
+
+print("Количество простых чисел: ", count)
