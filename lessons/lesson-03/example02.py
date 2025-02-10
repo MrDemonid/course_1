@@ -5,3 +5,7 @@ print(t)
 
 t = sorted(l, reverse=True)
 print(t)
+
+l.sort(reverse=True)
+print(l)
+

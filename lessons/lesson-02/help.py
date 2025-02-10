@@ -1,7 +1,7 @@
 help()
 
 
-# G:\Users\Andrey\PycharmProjects\.venv\Scripts\python.exe G:\Users\Andrey\PycharmProjects\lesson-2\help.py
+# G:\Users\Andrey\PycharmProjects\.venv\Scripts\python.exe G:\Users\Andrey\PycharmProjects\lesson-02\help.py
 # Welcome to Python 3.13's help utility! If this is your first time using
 # Python, you should definitely check out the tutorial at
 # https://docs.python.org/3.13/tutorial/.
