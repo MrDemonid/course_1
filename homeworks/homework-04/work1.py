@@ -40,12 +40,10 @@ def min_digit(n: int):
 operations = [sum_digit, max_digit, min_digit]
 
 while True:
-    action = int(input("Action:\n    1 - summ of digits\n    2 - max digit\n    3 - min digit\n    0 - exit\n"))
-    if action == 0:
-        quit()
+    action = int(input("Action:\n    1 - summ of digits\n    2 - max digit\n    3 - min digit\n    other - exit\n"))
     if 0 < action <= len(operations):
         number = int(input("Enter number: "))
         func = operations[action-1]
         print(f"result: {func(number)}")
     else:
-        print("Error: incorrect action! Must be in range 1..3.")
+        quit()
