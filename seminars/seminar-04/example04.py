@@ -39,3 +39,13 @@ print("do test buble...")
 print(timeit('buble_sort(copy.deepcopy(l))', globals=globals(), number=3))  # 72.43351979996078
 print("do test selected...")
 print(timeit('selected_sort(copy.deepcopy(l))', globals=globals(), number=3))  # 27.931663200026378
+
+# Xeon E3-1270 v3:
+# buble    - 72.43351979996078
+# selected - 27.931663200026378
+
+# Xeon E5-1650 v4
+# buble    - 41.650159599999824
+# selected - 19.807272600000033
+
+
