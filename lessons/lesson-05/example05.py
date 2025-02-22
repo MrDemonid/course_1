@@ -1,5 +1,5 @@
 # Функция-генератор
-from typing import Any, Generator
+from typing import Any, Generator, Iterator
 
 
 def factorial(n):
@@ -20,7 +20,7 @@ print(next(gen))
 print(next(gen))
 
 
-def gen(a: int, b: int) -> str:
+def gen(a: int, b: int) -> Iterator[str]:
     if a > b:
         a, b = b, a
     for i in range(a, b + 1):
