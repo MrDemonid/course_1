@@ -5,7 +5,6 @@
 ✔ Для вывода результата используйте «принт» без перехода на новую строку.
 """
 
-gen = (col * i for col in range(2, 10) for i in range(2, 11))
+gen = ("\n" if i == 10 else f"{i} X {j:>2} = {(i * j):>2}    " for j in range(2, 11) for i in range(2, 11))
 
-for j in range(0, 2):
-    for i in range(2, 11):
+print('', *gen)
