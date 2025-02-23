@@ -68,3 +68,8 @@ while num_of > 0:
     num_of -= 1
 
 print("Количество простых чисел: ", count)
+
+# for i in range(2, 100):
+#     if is_prime(i):
+#         print(i, end=', ')
+# print('\x08\x08')
