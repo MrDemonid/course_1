@@ -10,3 +10,10 @@
 - ложь.
 """
 
+from semmodules.chess_queens import *
+
+intersect = [(1, 6), (2, 3), (3, 5), (4, 7), (5, 1), (6, 5), (7, 2), (8, 8)]
+no_intersect = [(1, 6), (2, 3), (3, 5), (4, 7), (5, 1), (6, 4), (7, 2), (8, 8)]
+
+print(check_queens(intersect))
+print(check_queens(no_intersect))

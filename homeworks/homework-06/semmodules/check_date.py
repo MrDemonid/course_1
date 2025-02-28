@@ -9,6 +9,8 @@
 
 import re
 
+__all__ = ['is_valid_date']
+
 _MIN_YEAR = 1
 _MAX_YEAR = 9999
 
@@ -65,4 +67,3 @@ if __name__ == '__main__':
     print(is_valid_date('32.12.1999'))
     print(is_valid_date('29.02.2025'))
     print(is_valid_date('28.02.2025'))
-

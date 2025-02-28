@@ -8,12 +8,14 @@
 from sys import argv
 from random import randint
 
-IS_DEBUG = False
+__all__ = ['bulls_and_cows']
+
+__IS_DEBUG = False
 
 
-def _bulls_and_cows(start, stop, count):
+def _do_bulls_and_cows(start, stop, count):
     num = randint(start, stop)
-    if IS_DEBUG:
+    if __IS_DEBUG:
         print("-- random number: ", num)
     while count > 0:
         n = int(input(f"Enter the number at {start} to {stop}; remainder count = {count}: "))
@@ -27,7 +29,7 @@ def _bulls_and_cows(start, stop, count):
     return False
 
 
-_def_params = [0, 9, 4]
+_def_params = [1, 100, 5]
 
 
 def _get_args():
@@ -42,16 +44,15 @@ def _get_args():
     return n
 
 
-def do_bulls_and_cows():
+def bulls_and_cows():
     """ Импортируемая функция, использующая параметры командной строки """
     start, stop, count, *_ = _get_args()
     if start < stop:
-        print(_bulls_and_cows(start, stop, count))
+        print(_do_bulls_and_cows(start, stop, count))
     else:
         print("Start and End numbers is bad!")
 
 
-
 if __name__ == '__main__':
-    IS_DEBUG = True
-    do_bulls_and_cows()
+    __IS_DEBUG = True
+    bulls_and_cows()
