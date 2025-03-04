@@ -1,0 +1,10 @@
+The three color is a red, green. blue
+redgreenblue
+red
+green
+blue
+-----------
+red green blue
+print > red < 
+print > green < 
+print > blue < 
