@@ -67,3 +67,6 @@ for n in p.iterdir():
     print(f"{n = }", s)
 
 # обход папок через walk()
+for d_path, d_name, f_name in os.walk(os.getcwd()):
+    print(f'{d_path = }\n{d_name = }\n{f_name = }\n')
+
