@@ -8,25 +8,22 @@
 import string
 from random import randint, choice, sample
 
+
 def _check_vowels(s):
+    """ Проверяет, есть ли в слове хотя бы одна согласная буква """
     vowels = ['a', 'e', 'i', 'o', 'u', 'y']
-    for ch in vowels:
-        if ch in s:
-            return True
-    return False
+    return any(l in vowels for l in s)
 
 
 def gen_names(file_name, num_names):
-    alph= [ch for ch in string.ascii_lowercase]
-    with open(file_name, 'w', encoding='utf-8') as f:
-        while num_names:
+    with open(file_name, 'a', encoding='utf-8') as f:
+        for _ in range(num_names):
             length = randint(4, 7)
             while True:
-                name = "".join(sample(alph, length)).capitalize()
+                name = "".join(sample(string.ascii_lowercase, length)).title()
                 if _check_vowels(name):
                     break
             f.write(f"{name}\n")
-            num_names -= 1
 
 
 if __name__ == '__main__':
