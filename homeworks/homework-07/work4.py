@@ -9,13 +9,16 @@ from pathlib import Path
 
 
 def find_files(src_dir, ext_file):
-    src_dir = Path(src_dir).resolve()
-    if not ext_file.startswith('.'):
-        ext_file = '.' + ext_file
-    print(f"Start search files from {src_dir}")
+    if Path(src_dir).is_dir():
+        src_dir = Path(src_dir).resolve()
+        if not ext_file.startswith('.'):
+            ext_file = '.' + ext_file
+        print(f"Start search files from {src_dir}")
 
-    for fn in src_dir.rglob('*' + ext_file):
-        print(f"  - found: {fn}")
+        for fn in src_dir.rglob('*' + ext_file):
+            print(f"  - found: {fn}")
+    else:
+        print(f"Error: first parameter must be directory!")
 
 
 if __name__ == '__main__':

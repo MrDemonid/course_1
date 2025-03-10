@@ -11,21 +11,23 @@ import zipfile
 
 
 def archive_directory(src_dir, arch_name):
-    # делаем путь абсолютным
-    src_dir = Path(src_dir).resolve()
-    print(f"Start zipped from {src_dir}")
-    with zipfile.ZipFile(arch_name, 'w', zipfile.ZIP_DEFLATED) as f:
-        for fn in src_dir.rglob('*'):
-            if fn.is_file():
-                print(f"  - add to {fn}")
-                rel_path = fn.relative_to(src_dir)
-                f.write(fn, rel_path)
+    if Path(src_dir).is_dir():
+        # делаем путь абсолютным
+        src_dir = Path(src_dir).resolve()
+        print(f"Start zipped from {src_dir}")
+        with zipfile.ZipFile(arch_name, 'w', zipfile.ZIP_DEFLATED) as f:
+            for fn in src_dir.rglob('*'):
+                if fn.is_file():
+                    print(f"  - add to {fn}")
+                    rel_path = fn.relative_to(src_dir)
+                    f.write(fn, rel_path)
+    else:
+        print(f"Error: first parameter must be directory!")
 
 
 if __name__ == '__main__':
     archive_directory('./dir-01', './dir-02/reserved.zip')
     # archive_directory(Path(Path.cwd() / 'dir-01'), './dir-02/reserved.zip')
-
 
 # Вариант рабочий, но PyCharm ругается на возможные проблемы с типами данных в os.path.join()
 #
