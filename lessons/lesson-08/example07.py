@@ -1,12 +1,5 @@
 import csv
 
-# lst = [
-#     {"Name": "Ivan", "Age": 35, "Height": 176},
-#     {"Name": "Bert", "Age": 25, "Height": 178},
-#     {"Name": "Elly", "Age": 24, "Height": 164},
-#     {"Name": "Carl", "Age": 42, "Height": 182},
-# ]
-
 # Запись CSV
 
 lst = [
