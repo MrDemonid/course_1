@@ -8,7 +8,9 @@ import csv
 import os.path
 import pickle
 
+from memory_profiler import profile
 
+@profile
 def csv_2_pickle(src):
     if os.path.exists(src) and os.path.isfile(src):
         with open(src, 'r', newline='', encoding='utf-8') as f:
