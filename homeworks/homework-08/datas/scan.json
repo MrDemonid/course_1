@@ -1,0 +1,135 @@
+[
+  {
+    "name": "JDBC.md",
+    "parent": "dir-01",
+    "path": "..\\homework-07\\dir-01\\JDBC.md",
+    "size": 6345,
+    "type": "file"
+  },
+  {
+    "name": "kafka.md",
+    "parent": "test-dir",
+    "path": "..\\homework-07\\dir-01\\test-dir\\kafka.md",
+    "size": 99482,
+    "type": "file"
+  },
+  {
+    "name": "work1.py",
+    "parent": "test-dir",
+    "path": "..\\homework-07\\dir-01\\test-dir\\work1.py",
+    "size": 610,
+    "type": "file"
+  },
+  {
+    "name": "test-dir",
+    "parent": "dir-01",
+    "path": "..\\homework-07\\dir-01\\test-dir",
+    "size": 100092,
+    "type": "directory"
+  },
+  {
+    "name": "work1.py",
+    "parent": "dir-01",
+    "path": "..\\homework-07\\dir-01\\work1.py",
+    "size": 674,
+    "type": "file"
+  },
+  {
+    "name": "work2.py",
+    "parent": "dir-01",
+    "path": "..\\homework-07\\dir-01\\work2.py",
+    "size": 733,
+    "type": "file"
+  },
+  {
+    "name": "work3.py",
+    "parent": "dir-01",
+    "path": "..\\homework-07\\dir-01\\work3.py",
+    "size": 619,
+    "type": "file"
+  },
+  {
+    "name": "dir-01",
+    "parent": "homework-07",
+    "path": "..\\homework-07\\dir-01",
+    "size": 108463,
+    "type": "directory"
+  },
+  {
+    "name": "reserved.zip",
+    "parent": "dir-02",
+    "path": "..\\homework-07\\dir-02\\reserved.zip",
+    "size": 25632,
+    "type": "file"
+  },
+  {
+    "name": "dir-02",
+    "parent": "homework-07",
+    "path": "..\\homework-07\\dir-02",
+    "size": 25632,
+    "type": "directory"
+  },
+  {
+    "name": "new-file.txt",
+    "parent": "dir-03",
+    "path": "..\\homework-07\\dir-03\\new-file.txt",
+    "size": 4,
+    "type": "file"
+  },
+  {
+    "name": "work2.py",
+    "parent": "dir-03",
+    "path": "..\\homework-07\\dir-03\\work2.py",
+    "size": 2459,
+    "type": "file"
+  },
+  {
+    "name": "work3.py",
+    "parent": "dir-03",
+    "path": "..\\homework-07\\dir-03\\work3.py",
+    "size": 3037,
+    "type": "file"
+  },
+  {
+    "name": "dir-03",
+    "parent": "homework-07",
+    "path": "..\\homework-07\\dir-03",
+    "size": 5500,
+    "type": "directory"
+  },
+  {
+    "name": "work1.py",
+    "parent": "homework-07",
+    "path": "..\\homework-07\\work1.py",
+    "size": 2160,
+    "type": "file"
+  },
+  {
+    "name": "work2.py",
+    "parent": "homework-07",
+    "path": "..\\homework-07\\work2.py",
+    "size": 1861,
+    "type": "file"
+  },
+  {
+    "name": "work3.py",
+    "parent": "homework-07",
+    "path": "..\\homework-07\\work3.py",
+    "size": 1114,
+    "type": "file"
+  },
+  {
+    "name": "work4.py",
+    "parent": "homework-07",
+    "path": "..\\homework-07\\work4.py",
+    "size": 934,
+    "type": "file"
+  },
+  {
+    "name": "..\\homework-07",
+    "parent": "",
+    "path": "",
+    "size": 145664,
+    "type": "directory"
+  }
+]
