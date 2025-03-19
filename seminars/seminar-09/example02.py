@@ -23,7 +23,6 @@ def run_func(func: Callable):
 
 @run_func
 def bulls_and_cows(num: int, count: int):
-    n = -num
     for _ in range(count):
         n = int(input("-- my number (1-100)?: "))
         if n == num:

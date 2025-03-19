@@ -1,0 +1,26 @@
+[
+    [
+        {
+            "params": "(72, 9)"
+        },
+        {
+            "result": "You win!"
+        }
+    ],
+    [
+        {
+            "params": "(94, 9)"
+        },
+        {
+            "result": "You loss! number is 94"
+        }
+    ],
+    [
+        {
+            "params": "(38, 9)"
+        },
+        {
+            "result": "You win!"
+        }
+    ]
+]
