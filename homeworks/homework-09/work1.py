@@ -19,3 +19,29 @@ test()
 А у меня не очень! Ладно, держи свою функцию.
 <Тут что-то происходит...>
 """
+from functools import wraps
+from typing import Callable
+
+
+def how_are_you(func: Callable) -> Callable:
+    @wraps(func)
+    def wrapper(*args, **kwargs):
+        input ("How are You? ")
+        print("And mine is not so good! Okay, keep your function.")
+        return func(*args, **kwargs)
+
+    return wrapper
+
+
+@how_are_you
+def test(a, b):
+    return a * b
+
+
+@how_are_you
+def test2(a, b, *, divider=2):
+    return (a * b) // divider
+
+
+print(f"{test(12, 6) = }")
+print(f"{test2(12, 6) = }")
