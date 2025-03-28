@@ -30,3 +30,80 @@
 Если animal_type не соответствует 'Bird', 'Fish' или 'Mammal', функция вызовет ValueError с сообщением
 'Недопустимый тип животного'.
 """
+
+
+class Animal:
+    def __init__(self, name):
+        self.name = name
+
+    def get_name(self):
+        return self.name
+
+    def set_name(self, name):
+        if not name is None and len(name) > 0:
+            self.name = name
+
+
+class Bird(Animal):
+    def __init__(self, name, wingspan):
+        self.wingspan = wingspan
+        super().__init__(name)
+
+    def wing_length(self):
+        """ Возвращает длину крыла птицы """
+        return self.wingspan / 2
+
+    def __str__(self):
+        return f"{self.__class__.__name__} [name = {self.name}, wingspan = {self.wingspan}]"
+
+
+class Fish(Animal):
+    def __init__(self, name, max_depth):
+        super().__init__(name)
+        self.max_depth = max_depth
+
+    def depth(self):
+        if self.max_depth < 10:
+            return "Мелководная рыба"
+        if self.max_depth > 100:
+            return "Глубоководная рыба"
+        return "Средневодная рыба"
+
+    def __str__(self):
+        return f"{self.__class__.__name__} [name = {self.name}, max_depth = {self.max_depth}, category = {self.depth()}]"
+
+
+class Mammal(Animal):
+    def __init__(self, name, weight):
+        super().__init__(name)
+        self.weight = weight
+
+    def category(self):
+        if self.weight < 1:
+            return "Малявка"
+        if self.weight > 200:
+            return "Гигант"
+        return "Обычный"
+
+    def __str__(self):
+        return f"{self.__class__.__name__} [name = {self.name}, weight = {self.weight}, category = {self.category()}]"
+
+
+class AnimalFactory:
+    classes = {"Bird": Bird, "Fish": Fish, "Mammal": Mammal}
+
+    @staticmethod
+    def create_animal(animal_type, *args) -> Animal:
+        if animal_type in AnimalFactory.classes:
+            return AnimalFactory.classes[animal_type](*args)
+        raise ValueError('Недопустимый тип животного')
+
+
+if __name__ == '__main__':
+    f = AnimalFactory.create_animal("Fish", "Гуппи", 30)
+    print(f)
+    b = AnimalFactory.create_animal("Bird", "Чиж", 14)
+    print(b)
+    m = AnimalFactory.create_animal("Mammal", "Хомяк", 0.6)
+    print(m)
+    t = AnimalFactory.create_animal("Dog", "Blue")  # ValueError: Недопустимый тип животного
