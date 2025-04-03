@@ -59,10 +59,10 @@ class Circle(Shape):
 
 
 class Rectangle(Shape):
-    def __init(self, width, height=None):
+    def __init__(self, width, height=None):
         super().__init__('Прямоугольник')
         self.width = width
-        self.height = height
+        self.height = width if height is None else height
 
     def area(self):
         return self.width * self.height
