@@ -76,3 +76,78 @@ rect1 <= rect2: False
 Ширина rect4: 2
 """
 
+
+class Rectangle:
+    """
+    Класс прямоугольника.
+    Поддерживает базовые операции:
+        - сложение
+        - вычитание
+        - сравнение
+    """
+    def __init__(self, width, height=None):
+        self.width = width
+        self.height = width if height is None else height
+
+    def perimeter(self):
+        return (self.width + self.height) * 2
+
+    def area(self):
+        return self.width * self.height
+
+    def _get_rect(self, perimeter):
+        height = width = perimeter // 4
+        if perimeter % 4 != 0:
+            height = width + ((perimeter % 4) >> 1)
+        return Rectangle(width, height)
+
+    def __add__(self, other):
+        if isinstance(other, Rectangle):
+            return self._get_rect(self.perimeter() + other.perimeter())
+        return None
+
+    def __sub__(self, other):
+        if isinstance(other, Rectangle):
+            return self._get_rect(abs(self.perimeter() - other.perimeter()))
+        return None
+
+    def __lt__(self, other):
+        if isinstance(other, Rectangle):
+            return self.area() < other.area()
+        return None
+
+    def __le__(self, other):
+        if isinstance(other, Rectangle):
+            return self.area() <= other.area()
+        return None
+
+    def __eq__(self, other):
+        if isinstance(other, Rectangle):
+            return self.area() == other.area()
+        return None
+
+    def __str__(self):
+        return f"Прямоугольник [{self.width}, {self.height}, периметр = {self.perimeter()}]"
+
+    def __repr__(self):
+        return f"{self.__class__.__name__}({self.width}, {self.height})"
+
+
+if __name__ == '__main__':
+    rect1 = Rectangle(5, 10)
+    rect2 = Rectangle(3, 7)
+
+    print(f"Периметр rect1: {rect1.perimeter()}")   # Вывод: 30
+    print(f"Площадь rect2: {rect2.area()}")         # Вывод: 21
+    print(f"rect1 < rect2: {rect1 > rect2}")        # Вывод: True
+    print(f"rect1 == rect2: {rect1 == rect2}")      # Вывод: False
+    print(f"rect1 <= rect2: {rect1 <= rect2}")      # Вывод: False
+
+    rect3 = rect1 + rect2
+    print(f"Периметр rect3: {rect3.perimeter()}")   # Вывод: 50
+
+    rect4 = rect1 - rect2
+    print(f"Ширина rect4: {rect4.width}")           # Вывод: 2
+
+    print(rect3)                                    # __str__()
+    print(repr(rect4))                              # __repr__()
