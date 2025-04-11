@@ -7,64 +7,27 @@
 При установке значения атрибута email, оно должно содержать символ @.
 """
 
-class FIO:
-    """ Дескриптор для ФИО """
-
-    def __set_name__(self, owner, name):
-        self.name = f"_{name}"
-
-    def __get__(self, instance, owner):
-        return getattr(instance, self.name)
-
-    def __set__(self, instance, value):
-        if not isinstance(value, str):
-            raise TypeError(f"Значение '{value}' должно быть строкой!")
-
-        parts = value.strip().split()
-        if not (1 <= len(parts) <= 3):
-            raise ValueError("ФИО должно содержать от 1 до 3 слов!")
-
-        for part in parts:
-            if not (part.isalpha() and part[0].isupper() and part[1:].islower()):
-                raise ValueError(
-                    "Каждая часть ФИО должна начинаться с заглавной буквы и содержать только буквы кириллицы!")
-        setattr(instance, self.name, value)
+from descs.fio import FIO
+from descs.numb import RangeValidator
+from descs.email import Email
 
 
-class Number:
-    """ Дескриптор для целых чисел из заданного диапазона """
+class Person:
+    name = FIO()
+    age = RangeValidator(num_min=0, num_max=119)
+    email = Email()
 
-    def __init__(self, num_min: int = None, num_max: int = None):
-        self._min = num_min
-        self._max = num_max
+    def __init__(self, name, age, email):
+        self.name = name
+        self.age = age
+        self.email = email
 
-    def __set_name__(self, owner, name):
-        self.name = f"_{name}"
+    def __str__(self):
+        return f"Person(name = '{self.name}', age = {self.age}, email = {self.email})"
 
-    def __get__(self, instance, owner):
-        return getattr(instance, self.name)
 
-    def __set__(self, instance, value):
-        if not isinstance(value, int):
-            raise TypeError(f"Значение '{value}' должно быть целочисленным!")
-        if not self._min is None and value < self._min:
-            raise ValueError(f"Значение '{value}' должно быть больше или равно '{self._min}'")
-        if not self._max is None and value > self._max:
-            raise ValueError(f"Значение '{value}' должно быть меньше или равно '{self._max}'")
-        setattr(instance, self.name, value)
-
-class Email:
-    """ Дескриптор для мыла """
-
-    def __set_name__(self, owner, name):
-        self.name = f"_{name}"
-
-    def __get__(self, instance, owner):
-        return getattr(instance, self.name)
-
-    def __set__(self, instance, value):
-        if not isinstance(value, str):
-            raise TypeError(f"Значение '{value}' должно быть строкой!")
-        if not "@" in value and not "." in value.split("@")[-1]:
-            raise ValueError(f"Значение '{value}' не является электронной почтой!")
-        setattr(instance, self.name, value)
+if __name__ == '__main__':
+    p = Person("Иван Александрович", 49, 'ivan-gov@gmail.com')
+    print(p)
+    p.email = "askjd@sdfjk.com"
+    t = Person("Ivan Gedesky", 49, "abra@yandex.com")
