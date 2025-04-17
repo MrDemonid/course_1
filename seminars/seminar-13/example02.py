@@ -6,3 +6,16 @@
 При обращении к несуществующему ключу функция должна возвращать дефолтное значение.
 Реализуйте работу через обработку исключений.
 """
+
+def foo(d: dict, key, def_value=None):
+    try:
+        return d[key]
+    except KeyError:
+        print(f"Ключ '{key}' не существует.")
+    return def_value
+
+
+d = {'red': 0xFF0000, 'green': 0x00FF00, 'blue': 0x0000FF}
+
+print(f"{foo(d, 'blue') = }")
+print(f"{foo(d, 'yellow') = }")
