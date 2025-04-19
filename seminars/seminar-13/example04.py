@@ -6,6 +6,8 @@
 Напишите класс пользователя, который хранит эти данные в свойствах экземпляра.
 Отдельно напишите функцию, которая считывает информацию из JSON файла и формирует множество пользователей.
 """
+import json
+import os.path
 
 
 class User:
@@ -50,8 +52,19 @@ class User:
         else:
             raise TypeError(f"Значение уровня должно быть целым числом!")
 
+    def __eq__(self, other):
+        if isinstance(other, User):
+            return self.idn == other.idn
+        return NotImplemented
+
+    def __hash__(self):
+        return hash(self.idn)
+
     def __str__(self):
         return f"Юзер [id = {self.idn}, name = {self.name}, level = {self.level}"
+
+    def __repr__(self):
+        return f"User({self.idn}, {self.name}, {self.level})"
 
 
 def new_user():
@@ -69,10 +82,48 @@ def new_user():
         except TypeError as e:
             print(f"Ошибка ввода type: {e}\nПопробуйте снова.")
 
-def load_users():
+
+def load_users(fn):
     """ Чтение множества User из файла JSON"""
-    pass
+    res = dict[str, dict[str, str]]
+    if os.path.exists(fn):
+        with open(fn, 'r', encoding='utf-8') as f:
+            line = f.readlines()
+            if len(line) > 0:
+                res = json.loads("".join(line))
+    print(res)
+    # конвертируем в Users's
+    users = set()
+    for level, d in res.items():
+        for idn, name in d.items():
+            try:
+                users.add(User(idn, name, int(level)))
+            except ValueError as e:
+                print(f"Ошибка: {e}")
+            except TypeError as e:
+                print(f"Ошибка: {e}")
+    return users
 
 
+def save_users(fn, users: set[User]):
+    # преобразуем в словарь
+    persons = dict()
+    for u in users:
+        level = str(u.level)
+        l: dict = persons.setdefault(level, dict())
+        l[u.idn] = u.name
+        persons[level] = l
+    print(persons)
+    if len(persons) == 0:
+        return
+    # и сохраняем обратно в файл
+    with open(fn, 'w', encoding='utf-8') as f:
+        json.dump(persons, f, indent=2, ensure_ascii=False, sort_keys=True)
 
-u = new_user()
+
+if __name__ == '__main__':
+    u = load_users("./datas/ex2.json")
+    print(u)
+    n = new_user()
+    u.add(n)
+    save_users("./datas/ex2.json", u)
