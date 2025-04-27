@@ -3,24 +3,22 @@
 
 Описание функции is_prime()
 ---
-Для проверки числа на простоту используйте функцию is_prime модуля prime.
+Для проверки числа на простоту используйте функцию is_prime() модуля example03.
 Импортируйте её в свой код.
 
-> from prime import is_prime
+>>> from example03 import is_prime
 
 Теперь можно проверять числа на простоту.
-> is_prime(2)
->
-> True
+
+>>> is_prime(2)
+True
 
 Функция использует проверку остатка от деления и может долго
 возвращать результат для больших простых чисел.
 Вы получите предупреждение, это нормально. Просто подождите.
-> is_prime(100000007)
-> 
-> If the number P is prime, the check may take a long time.
-> Working...
-> 
-> True
+>>> is_prime(100000007)
+If the number P is prime, the check may take a long time.
+Working...
+True
 
 *Приятного использования нашего модуля ;-)*

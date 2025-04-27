@@ -11,7 +11,7 @@ def say(s, count=2, delimiter=' '):
     >>> say('cat', 3, '(=^.^=)')
     cat(=^.^=)cat(=^.^=)cat
     """
-    res = delimiter.join([f"{s}"] * count)
+    res = delimiter.join([s] * count)
     print(res)
 
 
