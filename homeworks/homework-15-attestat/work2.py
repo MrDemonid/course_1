@@ -5,3 +5,11 @@
 формате YYYY-MM-DD HH:MM:SS.
 Дополнительно, выведите день недели и номер недели в году.
 """
+
+from datetime import datetime
+
+
+d = datetime.now()
+print(d.strftime('%Y-%m-%d %H:%M:%S'))
+print(d.strftime('День недели: %A\nНомер недели в году: %W'))
+

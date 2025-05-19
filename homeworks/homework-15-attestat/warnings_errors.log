@@ -1,0 +1,4 @@
+WARNING [2025-05-19 03:52:37,581] __main__: We have a WARNING
+ERROR [2025-05-19 03:52:37,581] __main__: We have a ERROR
+CRITICAL [2025-05-19 03:52:37,581] __main__: We have a FATAL
+CRITICAL [2025-05-19 03:52:37,582] __main__: We have a CRITICAL
